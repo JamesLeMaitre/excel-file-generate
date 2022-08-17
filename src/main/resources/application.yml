@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: development
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+      #location: Users\Hewlett-Packard\IdeaProjects\Maven\file-upload
+
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: admin
+    url: jdbc:postgresql://localhost:5432/db_excel-file
+
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      platform: postgres
+
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    level:
+      org.springframework: info
+      org.hibernate: debug
+      # Enregistre un crochet d'arrêt pour le système de journalisation lorsqu'il est initialisé.
+ # register-shutdown-hook: false
+
+server:
+  port: 9999
+
+#trace: true
